@@ -1,7 +1,7 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 long get_number(void);
 void luhn_check(long);
 
@@ -10,10 +10,8 @@ int main(void)
     // Get the credit card number
     long n = get_number();
 
-    //check the card
+    // check the card
     luhn_check(n);
-
-
 }
 
 long get_number(void)
@@ -28,7 +26,6 @@ long get_number(void)
         snprintf(str, sizeof(str), "%ld", n);
 
         len = strlen(str);
-
     }
     while (n < 0);
     return n;
@@ -40,23 +37,26 @@ void luhn_check(long n)
     char arr[16];
     int rc = sprintf(arr, "%ld", n);
     printf("%i ", rc);
-    if (rc < 0) {
-    // error
+    if (rc < 0)
+    {
+        // error
     }
     int sum = 0;
     int e = 1;
-    for (int i = (rc-1); i >= 0 ; i--) {
+    for (int i = (rc - 1); i >= 0; i--)
+    {
 
         int value;
-        value = arr[i]- '0';
-        if(e % 2 == 0)
+        value = arr[i] - '0';
+        if (e % 2 == 0)
         {
             printf("even! ");
             printf("digit value %i ", value);
 
             int num = value * 2;
             printf("digit value x2 %i ", num);
-            while(num!=0){
+            while (num != 0)
+            {
                 sum += num % 10;
                 num = num / 10;
             }
@@ -72,25 +72,26 @@ void luhn_check(long n)
         printf("e %i ", e);
         e++;
         printf("e %i ", e);
-        //printf("%i \n", sum);
+        // printf("%i \n", sum);
     }
     printf("%i \n", sum);
-    if(sum % 10 == 0) {
-            printf("yes!");
-            int count=0;
-            long m = n;
-            while(m!=0)
-            {
-                m=m/10;
-                count++;
-            }
-            printf("Num digits %i \n", count);
+    if (sum % 10 == 0)
+    {
+        printf("yes!");
+        int count = 0;
+        long m = n;
+        while (m != 0)
+        {
+            m = m / 10;
+            count++;
+        }
+        printf("Num digits %i \n", count);
 
-            int firstTwoDigits = n / pow(10, count - 2);
+        int firstTwoDigits = n / pow(10, count - 2);
 
-            printf("First two %i \n", firstTwoDigits);
-            if (count == 15)
-            {
+        printf("First two %i \n", firstTwoDigits);
+        if (count == 15)
+        {
             switch (firstTwoDigits)
             {
                 case 34:
@@ -153,16 +154,12 @@ void luhn_check(long n)
         }
         else
         {
-        printf("INVALID\n");
+            printf("INVALID\n");
         }
     }
     else
     {
         printf("INVALID\n");
     }
-    //printf("%i \n", sum);
-
-
+    // printf("%i \n", sum);
 }
-
-
