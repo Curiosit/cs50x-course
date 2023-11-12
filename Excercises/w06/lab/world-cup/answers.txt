@@ -1,0 +1,20 @@
+Times:
+
+10 simulations: 0m0.029s
+100 simulations: 0m0.036s
+1000 simulations: 0m0.050s
+10000 simulations: 0m0.345s
+100000 simulations: 0m4.459s
+1000000 simulations: 0m53.170s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?: TODO
+
+With a small number of simualtions there were bigger values for the teams with higher ratings.
+The mores simulations, the more lower rating teams appeared with a (small) chance of winning.
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+
+After 10000 simulations adding more simualtions did not drastically change the proportions of percentages.
